@@ -1,0 +1,3 @@
+there are 2 methods
+1. getting the contour
+2. threshold, get the image color range

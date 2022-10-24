@@ -8,6 +8,7 @@ find_package(OpenCV REQUIRED)
 include_directories(
     include
     ${OpenCV_INCLUDE_DIRS}
+    linpng++
     )
 
 add_executable(ETS main.cpp)

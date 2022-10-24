@@ -13,16 +13,22 @@ vector
 -
 math.h
 -
+opencv4/opencv2/opencv.hpp
+../include/ETS/opencv4/opencv2/opencv.hpp
+opencv4/opencv2/highgui.hpp
+-
 
 /home/danendra/Kuliah/DSEC/ETS/main.cpp
 iostream
--
-opencv4/opencv2/opencv.hpp
-/home/danendra/Kuliah/DSEC/ETS/opencv4/opencv2/opencv.hpp
-opencv4/opencv2/highgui.hpp
 -
 vector
 -
 ETS/main.h
 /home/danendra/Kuliah/DSEC/ETS/ETS/main.h
+png++/png.hpp
+/home/danendra/Kuliah/DSEC/ETS/png++/png.hpp
+opencv4/opencv2/opencv.hpp
+/home/danendra/Kuliah/DSEC/ETS/opencv4/opencv2/opencv.hpp
+opencv4/opencv2/highgui.hpp
+-
 

@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/danendra/Kuliah/DSEC/ETS/include -isystem /usr/include/opencv4 
+CXX_INCLUDES = -I/home/danendra/Kuliah/DSEC/ETS/include -I/home/danendra/Kuliah/DSEC/ETS/linpng++ -isystem /usr/include/opencv4 
 

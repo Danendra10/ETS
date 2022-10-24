@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
+#include "opencv4/opencv2/opencv.hpp"
+#include <opencv4/opencv2/highgui.hpp>
 
 using namespace std;
 
@@ -14,40 +16,32 @@ using namespace std;
  * 2: Linear
  * */
 vector<vector<float>> NNLayer(vector<vector<float>> input, vector<vector<float>> weight, vector<vector<float>> bias, uint8_t activation_function);
+
 vector<vector<float>> Normalization(vector<vector<float>> in, float in_min, float in_max);
+
+vector<vector<float>> NormalizationWithMat(cv::Mat in, float in_min, float in_max);
+
 vector<vector<float>> DeNormalization(vector<vector<float>> in, float in_min, float in_max);
 
+// make a function to random the weight and bias
+void RandomWeight(vector<vector<float>> *weight, int row, int col);
+
+void RandomBias(vector<vector<float>> *bias, int row, int col);
+
 //---Variables---
-vector<vector<float>> input = {
-    {5.0},
-    {-5.0},
-    {0.0},
-};
+vector<vector<float>> input;
 vector<vector<float>> normalized_input;
 vector<vector<float>> denormalized_output;
 
 vector<vector<float>> output_sigmoid;
 vector<vector<float>> output_linear;
 
-vector<vector<float>> weight1 = {
-    {2.2693, 0.5865, 2.3852},
-    {-0.5192, 2.0259, 1.1233},
-    {1.3964, -3.0309, 0.5255},
-    {-0.5526, 0.8239, -0.4767}};
+vector<vector<float>> weight1;
 
-vector<vector<float>> bias1 = {
-    {1.4758},
-    {1.1246},
-    {1.3421},
-    {0.2367},
-};
+vector<vector<float>> bias1;
 
-vector<vector<float>> bias2 = {
-    {-0.9249},
-    {0.2414}};
-vector<vector<float>> weight2 = {
-    {-2.1927, 1.8469, 2.7873, -0.4511},
-    {-1.5336, 1.4998, -0.3008, 0.9795}};
+vector<vector<float>> bias2;
+vector<vector<float>> weight2;
 
 vector<vector<float>> NNLayer(vector<vector<float>> input, vector<vector<float>> weight, vector<vector<float>> bias, uint8_t activation_function)
 {
@@ -105,6 +99,43 @@ vector<vector<float>> DeNormalization(vector<vector<float>> in, float in_min, fl
         }
     }
     return in;
+}
+
+vector<vector<float>> NormalizationWithMat(cv::Mat in, float in_min, float in_max)
+{
+    // Make a buffer output mat (unnecessary, only for clean code for easier debugging)
+    vector<vector<float>> out(in.rows, vector<float>(in.cols, 0));
+    for (int i = 0; i < in.rows; i++)
+    {
+        for (int j = 0; j < in.cols; j++)
+        {
+            out[i][j] = 2 * (in.at<float>(i, j) - in_min) / (in_max - in_min) - 1;
+        }
+    }
+    return out;
+}
+
+void RandomWeight(vector<vector<float>> *weight, int row, int col)
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            // print the weight
+            (*weight)[i][j] = (float)rand() / (float)RAND_MAX;
+        }
+    }
+}
+
+void RandomBias(vector<vector<float>> *bias, int row, int col)
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            (*bias)[i][j] = (float)rand() / (float)RAND_MAX;
+        }
+    }
 }
 
 #endif
