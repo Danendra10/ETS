@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ETS/main.h
+iostream
+-
+vector
+-
+math.h
+-
+
+/home/danendra/Kuliah/DSEC/ETS/main.cpp
+iostream
+-
+opencv4/opencv2/opencv.hpp
+/home/danendra/Kuliah/DSEC/ETS/opencv4/opencv2/opencv.hpp
+opencv4/opencv2/highgui.hpp
+-
+vector
+-
+ETS/main.h
+/home/danendra/Kuliah/DSEC/ETS/ETS/main.h
+
